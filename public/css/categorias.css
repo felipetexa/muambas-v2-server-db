@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;500;700&display=swap');
+
+:root {
+    font-size: 62.5%; /* sempre 10px */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Teko', sans-serif;
+}
+
+body {
+    background: linear-gradient(90deg, rgba(36,36,36,1) 0%, rgba(0,175,239,1) 90%);
+}
+
+main{
+    margin-inline: 70px;
+}
+
+main h1 {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    height: auto;
+    font-size: 40px;
+    color: white;
+    text-shadow: black 0.5rem 0.5rem 1rem;
+    text-align: space-between;
+}
+
+
+.categorias{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    border-radius: .5rem;
+    transition:0.5s ;
+    margin: 20px;
+    border: 1px solid #ddd;
+    padding: 18px;
+    
+}
+.card:hover{
+    transform: scale(1.1);
+   
+}
+.card img{
+    width: 100%;
+    
+}
+
+.card p{
+    font-size: 2.5rem;
+}
+
+.card p, 
+.card img{
+    cursor: pointer;
+}
+
+
+
+

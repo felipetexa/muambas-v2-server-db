@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;500;700&display=swap');
+
+:root {
+  font-size: 62.5%; /* sempre 10px */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Teko', sans-serif;
+}
+
+header {
+  height: 120px;
+  background: linear-gradient(
+    90deg,
+    rgba(36, 36, 36, 1) 0%,
+    rgba(0, 175, 239, 1) 90%
+  );
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 40px 0 20px;
+  align-items: center;
+}
+
+.icon img {
+  width: 180px;
+  margin-top: 10px;
+  margin-left: 100px;
+}
+
+.cart-user {
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  align-content: flex-end;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+
+
+  font-size: 1.6rem;
+}
+
+.form_search {
+  display: flex;
+  align-items: center;
+  align-content: flex-end;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.cart {
+  position: relative;
+  max-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cart i {
+  color: #1a495a;
+  font-size: 3em;
+  margin-top: 10px;
+}
+
+.contador-carrinho {
+  position: absolute;
+  top: 1.8rem;
+  right: -0.2rem;
+  background: #1a495a;
+  color: #fff;
+  border-radius: 50%;
+  width: 2.0rem;
+  height: 2.0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.cart span {
+  font-size: 1.5em;
+  font-family: 'Teko', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 10px;
+  line-height: 12px;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 20px;
+}
+
+.user i {
+  font-size: 50px;
+  color: #1a495a;
+
+}
+
+.user span {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-left: 0.5rem;
+}
+
+.user ul {
+  padding: 0;
+  margin: 0;
+}
+
+
+.user-options ul li {
+  display: inline;
+  list-style: none;
+  margin-left: 0.4rem;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+.user-options a{
+  text-decoration: none;
+  color: black
+}
+
+
+.search input {
+  width: 500px;
+  height: 35px;
+  border-radius: 15px;
+  border: none;
+  padding: 0 15px;
+  font-size: 1.4rem;
+}
+
+/* .search ::placeholder {
+    padding-left: 10px;
+} */
+
+.search button {
+  background-color: #ffffff;
+  border: none;
+  position: relative;
+  left: -40px;
+}
+
+.search i {
+  font-size: 25px;
+  color: #1a495a;
+}
+
+nav {
+  box-shadow: 0px 8px 10px grey;
+  background-color: #f6fdff;
+  padding: 0 1.0rem;
+  margin: 0;
+  font-size: 1.7rem;
+  font-family: 'Teko', sans-serif;
+  font-weight: 400;
+
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 0;
+}
+
+nav li {
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #551A8B;
+}
+
+nav a:hover {
+  color: #0A58CA;
+}
