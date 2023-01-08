@@ -1,13 +1,13 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-const apiController = require('../controllers/apiController');
+const apiController = require('../controllers/apiController')
 
-router.get('/headsets', apiController.getAllHeadset);
-router.get('/teclados', apiController.getAllTeclados);
-router.get('/notebooks', apiController.getAllNotebooks);
-router.get('/telefones', apiController.getAllTelefone);
-router.get('/videoGames', apiController.getAllVideoGames);
-router.get('/products', apiController.getProducts);
+router.get('/headsets', apiController.getAllHeadset)
+router.get('/keyboards', apiController.getAllKeyboards)
+router.get('/notebooks', apiController.getAllNotebooks)
+router.get('/telephones', apiController.getAllTelephone)
+router.get('/videogames', apiController.getAllVideoGames)
+router.get('/products', apiController.getProducts)
 
-module.exports = router;
+module.exports = router

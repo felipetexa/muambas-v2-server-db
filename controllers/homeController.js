@@ -1,111 +1,110 @@
-const {Produto} = require("../models");
-const {Op} = require("sequelize");
+const { Product } = require('../models')
+const { Op } = require('sequelize')
+
 const homeController = {
-    
-    showIndex: async (req, res) => {
-        let { usuario, carrinho } = req.session;
-        const {search} = req.body;
-        console.log(search);
-        if (search && search.length > 0) {
-            const produtos = await Produto.findAll({
-                where: {
-                    nome: {
-                        [Op.like]: `%${search}%`
-                    }
-                }
-            });
-            return res.render('home/index', { produtos, usuario, carrinho });
-        }
-        const produtos = await Produto.findAll({
+  showIndex: async (req, res) => {
+    let { user, cart } = req.session
+    const { search } = req.body
+    if (search && search.length > 0) {
+      const products = await Product.findAll({
         where: {
-            ativo:{
-                [Op.eq]: "on"
-            }
-        },    
-        limit: 4,
-        offset: 3, 
-        });
-
-        if (usuario) {
-            if (carrinho > 0) {
-                return res.render('home/index', { produtos, usuario, carrinho });
-            }
-            return res.render('home/index', { produtos, usuario, carrinho });
+          name: {
+            [Op.like]: `%${search}%`
+          }
         }
-        return res.render('home/index', { produtos, usuario, carrinho });
-    },
-
-    showOneProduct: async (req, res) => {
-        let { usuario, carrinho } = req.session;
-        const { id } = req.params;
-
-        const produto = await Produto.findByPk(id);
-        if (!produto) {
-            return res.render("home/not-found", { error: "Produto não encontrado 😬" });
-        }
-        if (usuario) {
-            if (carrinho > 0) {
-                return res.render('home/produtos', { produto, usuario, carrinho });
-            }
-            return res.render('home/produtos', { produto, usuario, carrinho });
-        }
-        return res.render("home/produtos", { produto, usuario });
-
-    },
-
-    categorias: async (req, res) => {
-        const { usuario } = req.session;
-        const {carrinho} = req.session;
-        const id = req.params.id;
-        const categorias = await Produto.findAll({
-            where: {
-                categorias_id:{
-                    [Op.eq]: id
-                }
-            }
-    });
-        res.render('home/categorias', { usuario, carrinho, categorias });
-    },
-
-    login: (req, res) => {
-        res.render('home/login')
-    },
-
-    produtos: (req, res) => {
-        const { usuario } = req.session;
-
-        res.render('home/produtos', { usuario });
-    },
-
-    cadastro: (req, res) => {
-        res.render('home/cadastro')
-    },
-
-    lista: async(req, res) => {
-        let { usuario, carrinho } = req.session;
-        const {search} = req.body;
-        console.log(search);
-        if (search && search.length > 0) {
-            const produtos = await Produto.findAll({
-                where: {
-                    nome: {
-                        [Op.like]: `%${search}%`
-                    }
-                }
-            });
-            return res.render('home/lista', { produtos, usuario, carrinho });
-        }
-        const produtos = await Produto.findAll();
-
-        if (usuario) {
-            if (carrinho > 0) {
-                return res.render('home/lista', { produtos, usuario, carrinho });
-            }
-            return res.render('home/lista', { produtos, usuario, carrinho });
-        }
-        return res.render('home/lista', { produtos, usuario, carrinho });
+      })
+      return res.status(200).json({ products, user, cart })
     }
+    const products = await Product.findAll({
+      where: {
+        active: {
+          [Op.eq]: 'on'
+        }
+      },
+      limit: 4,
+      offset: 3
+    })
 
+    if (user) {
+      if (cart > 0) {
+        return res.status(200).json({ products, user, cart })
+      }
+      return res.status(200).json({ products, user, cart })
+    }
+    return res.status(200).json({ products, user, cart })
+  },
+
+  showOneProduct: async (req, res) => {
+    let { user, cart } = req.session
+    const { id } = req.params
+
+    const product = await Product.findByPk(id)
+    if (!product) {
+      return res.status(404).json({
+        error: 'product not found'
+      })
+    }
+    if (user) {
+      if (cart > 0) {
+        return res.status(200).json({ product, user, cart })
+      }
+      return res.status(200).json({ product, user, cart })
+    }
+    return res.status(200).json({ product, user })
+  },
+
+  categories: async (req, res) => {
+    const { user } = req.session
+    const { cart } = req.session
+    const id = req.params.id
+    const categories = await Product.findAll({
+      where: {
+        categories_id: {
+          [Op.eq]: id
+        }
+      }
+    })
+    return res.status(200).json({ user, cart, categories })
+  },
+
+  //   login: (req, res) => {
+  //     res.render('home/login')
+  //   },
+
+  products: (req, res) => {
+    const { user } = req.session
+
+    return res.status(200).json({ user })
+  },
+
+  //   cadastro: (req, res) => {
+  //     res.render('home/cadastro')
+  //   },
+
+  list: async (req, res) => {
+    let { user, cart } = req.session
+    const { search } = req.body
+    console.log(search)
+    if (search && search.length > 0) {
+      const products = await Product.findAll({
+        where: {
+          name: {
+            [Op.like]: `%${search}%`
+          }
+        }
+      })
+      return res.status(200).json({ products, user, cart })
+    }
+    const products = await Product.findAll()
+
+    if (user) {
+      if (cart > 0) {
+        return res.status(200).json({ products, user, cart })
+      }
+      return res.status(200).json({ products, user, cart })
+    }
+    return res.status(200).json({ products, user, cart })
+  }
 }
 
-module.exports = homeController;
+module.exports = homeController

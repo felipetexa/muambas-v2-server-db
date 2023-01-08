@@ -1,7 +1,7 @@
 {
-  "name": "muambas-empresa",
-  "version": "1.0.0",
-  "description": "- Estrutura do README\r     - Logo ou Banner\r     - Título e Descrição\r     - Badges\r     - Status do Projeto\r     - Tabela de Conteúdos\r     - Features\r     - Demonstração da Aplicação\r     - Pré-requisitos e como rodar a aplicação/testes\r     - Tecnologias utilizadas\r     - Contribuição\r     - Autor\r     - Licença",
+  "name": "muambas-enterprises",
+  "version": "2.0.0",
+  "description": "server and database as an API REST",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Muambas-net/projeto-muamba.git"
+    "url": "git+https://github.com/felipetexa/muambas-v2-server-db.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Muambas-net/projeto-muamba/issues"
+    "url": "https://github.com/felipetexa/muambas-v2-server-db/issues"
   },
-  "homepage": "https://github.com/Muambas-net/projeto-muamba#readme",
+  "homepage": "https://github.com/felipetexa/muambas-v2-server-db#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",

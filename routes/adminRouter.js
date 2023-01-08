@@ -1,23 +1,22 @@
-const express = require("express");
-const router = express.Router();
-const adminController = require("../controllers/adminController");
-const validaLogin = require("../middlewares/validaLogin");
-const validaAdmin = require("../middlewares/validaAdmin");
-const resCart = require("../middlewares/resCart");
-const  storage = require("../middlewares/storage");
-const upload = storage("imagem", "/produtos");
+const express = require('express')
+const router = express.Router()
+const adminController = require('../controllers/adminController')
+const verifyLogin = require('../middlewares/verifyLogin')
+const verifyAdmin = require('../middlewares/verifyAdmin')
+const resCart = require('../middlewares/resCart')
+const storage = require('../middlewares/storage')
+const upload = storage('images', '/products')
 
+router.use(verifyLogin)
+router.use(verifyAdmin)
+router.use(resCart)
+router.get('/adm/admin-panel', adminController.getAdminPanel)
+router.get('/adm/add-product', adminController.addProduct)
+router.get('/adm/product/details/:id', adminController.getProduct)
+router.post('/adm/add-product', upload, adminController.storeProduct)
+router.get('/adm/:id/edit-product', adminController.editProduct)
+router.put('/adm/edit-product/:id', upload, adminController.updateProduct)
+router.get('/adm/delete-product/:id', adminController.deleteProduct)
+router.delete('/adm/delete-product/:id', adminController.destroyProduct)
 
-router.use(validaLogin);
-router.use(validaAdmin);
-router.use(resCart);
-router.get("/adm/paineladmin", adminController.getPainelAdmin);
-router.get("/adm/adicionar-produto", adminController.addProduct);
-router.get("/adm/produto/detalhes/:id", adminController.getProduto)
-router.post("/adm/adicionar-produto", upload, adminController.storeProduct);
-router.get("/adm/:id/editar-produto", adminController.editProduct);
-router.put("/adm/editar-produto/:id", upload, adminController.updateProduct);
-router.get("/adm/deletar-produto/:id", adminController.deleteProduct);
-router.delete("/adm/deletar-produto/:id", adminController.destroyProduct);
-
-module.exports = router;
+module.exports = router

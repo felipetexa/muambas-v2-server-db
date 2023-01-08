@@ -1,13 +1,12 @@
 const resCart = (req, res, next) => {
-    let { carrinho } = req.session;
+  let { cart } = req.session
 
-    if (carrinho > 0) {
-        res.locals.carrinho = carrinho;
-    } else {
-        res.locals.carrinho = carrinho
-    }
-    next();
-
+  if (cart > 0) {
+    res.locals.cart = cart
+  } else {
+    res.locals.cart = cart
+  }
+  next()
 }
 
 module.exports = resCart
