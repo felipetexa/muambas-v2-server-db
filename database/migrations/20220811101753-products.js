@@ -1,49 +1,46 @@
-'use strict';
+'use strict'
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('produtos', {
+    await queryInterface.createTable('products', {
       id: {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
+        primaryKey: true
       },
-      nome: {
-        type: Sequelize.DataTypes.STRING(200),
-        allowNull: false,
-      },
-      modelo: {
-        type: Sequelize.DataTypes.STRING(200),
-      },
-      fabricante: {
-        type: Sequelize.DataTypes.STRING(200),
-      },
-      descricao: {
+      name: {
         type: Sequelize.DataTypes.STRING(200),
         allowNull: false
       },
-      preco: {
+      image: {
+        type: Sequelize.DataTypes.STRING(200)
+      },
+      description: {
+        type: Sequelize.DataTypes.STRING(200),
+        allowNull: false
+      },
+      price: {
         allowNull: false,
         type: Sequelize.DataTypes.DECIMAL(5, 2)
       },
       serial: {
         type: Sequelize.DataTypes.STRING(200),
         isUnique: true,
-        field:'serial_number'
+        field: 'serial_number'
       },
-      estoque: {
-        type: Sequelize.DataTypes.INTEGER(20),
+      active: {
+        type: Sequelize.DataTypes.STRING(10)
       },
-      categorias_id: {
+      categories_id: {
         type: Sequelize.DataTypes.INTEGER(200),
         allowNull: false,
         references: {
           model: {
-            tableName: 'categorias',
+            tableName: 'categories'
           },
           key: 'id'
         },
-        onDelete: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -51,12 +48,11 @@ module.exports = {
       },
       updatedAt: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: false
       }
-    },
-    );
+    })
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('produtos');
+    await queryInterface.dropTable('products')
   }
-};
+}

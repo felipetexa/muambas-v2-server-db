@@ -1,18 +1,18 @@
-'use strict';
+'use strict'
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-     await queryInterface.createTable('pedidos', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('orders', {
       id: {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
+        primaryKey: true
       },
-      usuario_id: {
+      user_id: {
         type: Sequelize.DataTypes.INTEGER,
-        references: { 
-          model: 'usuarios', 
+        references: {
+          model: 'users',
           key: 'id'
         },
         allowNull: false,
@@ -22,21 +22,21 @@ module.exports = {
         type: Sequelize.DataTypes.DECIMAL(5, 2),
         allowNull: false
       },
-      pagamento: {
+      payment: {
         type: Sequelize.DataTypes.STRING(200),
         allowNull: false
       },
-      entrega: {
+      delivery: {
         type: Sequelize.DataTypes.STRING(200),
         allowNull: false
       },
       status: {
         type: Sequelize.DataTypes.STRING(200)
       }
-    });
+    })
   },
 
-  async down (queryInterface, Sequelize) {
-      await queryInterface.dropTable('pedidos');
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('orders')
   }
-};
+}
