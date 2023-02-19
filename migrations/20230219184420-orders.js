@@ -19,7 +19,7 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       total: {
-        type: Sequelize.DataTypes.DECIMAL(5, 2),
+        type: Sequelize.DataTypes.DECIMAL(10, 2),
         allowNull: false
       },
       payment: {

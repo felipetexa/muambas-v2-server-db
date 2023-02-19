@@ -13,15 +13,16 @@ module.exports = {
         allowNull: false
       },
       image: {
-        type: Sequelize.DataTypes.STRING(200)
-      },
-      description: {
         type: Sequelize.DataTypes.STRING(200),
         allowNull: false
       },
+      description: {
+        type: Sequelize.DataTypes.STRING(1000),
+        allowNull: false
+      },
       price: {
-        allowNull: false,
-        type: Sequelize.DataTypes.DECIMAL(5, 2)
+        type: Sequelize.DataTypes.FLOAT(10, 2),
+        allowNull: false
       },
       serial: {
         type: Sequelize.DataTypes.STRING(200),
@@ -29,7 +30,8 @@ module.exports = {
         field: 'serial_number'
       },
       active: {
-        type: Sequelize.DataTypes.STRING(10)
+        type: Sequelize.DataTypes.STRING(10),
+        allowNull: true
       },
       categories_id: {
         type: Sequelize.DataTypes.INTEGER(200),
